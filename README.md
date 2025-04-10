@@ -44,7 +44,7 @@ This app is not just an online store — it integrates **secure user authenticat
 
 ```bash
 # Clone the repo
-git clone https://github.com/yourusername/refurbx.git
+git clone https://github.com/Jeman-Kumar-97-06/E-Commerce_App_Refurbished_Phones.git
 cd refurbx
 
 # Install dependencies
