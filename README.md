@@ -55,4 +55,7 @@ cp .env.example .env
 # Add your MongoDB URI, OAuth credentials, Pinecone API key, etc.
 
 # Run the app
+# Enter backend/ folder :
+nodemon server.js
+# Enter frontend/ folder :
 npm run dev
