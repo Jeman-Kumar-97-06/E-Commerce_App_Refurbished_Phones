@@ -1,6 +1,6 @@
-# RefurbX – Smart Deals on Certified Refurbished Phones 🛒📱
+# RefurbStore – Smart Deals on Certified Refurbished Phones 🛒📱
 
-RefurbX is a modern e-commerce platform that sells **certified refurbished smartphones** with a focus on quality, affordability, and sustainability.
+RefurbStore is a modern e-commerce platform that sells **certified refurbished smartphones** with a focus on quality, affordability, and sustainability.
 
 This app is not just an online store — it integrates **secure user authentication (OAuth + JWT)** and a built-in **AI chatbot** powered by `@xenova/transformers` and **Pinecone vector database** to help customers find exactly what they need.
 
