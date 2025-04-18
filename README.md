@@ -59,3 +59,11 @@ cp .env.example .env
 nodemon server.js
 # Enter frontend/ folder :
 npm run dev
+```
+## Required .env Variables: 
+MONGOURL : Your own mongodb atlas url
+PORT : A port through which backend code can communicate
+PINE_CONE_API_KEY : Pine API key 
+PINE_CONE_INDEX_NAME : PineCone Index name
+SEC : A secret string that is used to create json web token
+GOOGLECLIENTID : You need this to create Google OAuth
