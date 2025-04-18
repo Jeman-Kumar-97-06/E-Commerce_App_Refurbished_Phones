@@ -61,9 +61,9 @@ nodemon server.js
 npm run dev
 ```
 ## Required .env Variables: 
-MONGOURL : Your own mongodb atlas url
-PORT : A port through which backend code can communicate
-PINE_CONE_API_KEY : Pine API key 
-PINE_CONE_INDEX_NAME : PineCone Index name
-SEC : A secret string that is used to create json web token
-GOOGLECLIENTID : You need this to create Google OAuth
+1. MONGOURL : Your own mongodb atlas url.
+2. PORT : A port through which backend code can communicate.
+3. PINE_CONE_API_KEY : Pine API key .
+4. PINE_CONE_INDEX_NAME : PineCone Index name.
+5. SEC : A secret string that is used to create json web token.
+6. GOOGLECLIENTID : You need this to create Google OAuth.
