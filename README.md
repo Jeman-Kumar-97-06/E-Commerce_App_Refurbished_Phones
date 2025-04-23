@@ -64,6 +64,6 @@ npm run dev
 1. MONGOURL : Your own mongodb atlas url.
 2. PORT : A port through which backend code can communicate.
 3. PINE_CONE_API_KEY : Pine API key .
-4. PINE_CONE_INDEX_NAME : PineCone Index name.
+4. PINE_CONE_INDEX_NAME : "phoneindex"
 5. SEC : A secret string that is used to create json web token.
 6. GOOGLECLIENTID : You need this to create Google OAuth.
