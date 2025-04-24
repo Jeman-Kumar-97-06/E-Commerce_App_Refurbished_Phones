@@ -7,6 +7,7 @@ const createToken = (id) => {
     return jwt.sign({_id:id},process.env.SEC,{expiresIn:'3d'});
 }
 
+//Initialize Google Client :
 const client = new OAuth2Client(process.env.GOOGLECLIENTID);
 
 //Login Users with Google : 
