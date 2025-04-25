@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useCartContext } from "../hooks/useCartContext";
+import {useNavigate} from 'react-router-dom';
+import CartItem from "../components/CartItem";
 
 const products = [
   { id: 1, name: "iPhone 12", price: 599, image: "https://via.placeholder.com/150" },
@@ -9,6 +11,8 @@ const products = [
 
 export default function CartPage() {
   
+  const navigate = useNavigate();
+
   const {user}  = useAuthContext();
   const {cart_items,dispatch} = useCartContext();
 
@@ -63,19 +67,17 @@ export default function CartPage() {
   //Payment Code ends here
   return (
     <div className="min-h-screen bg-gray-100 p-6">
+      <button
+        onClick={() => navigate("/")}
+        className="mb-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+      >
+        ← Back to Home
+      </button>
       <h2 className="text-3xl font-bold text-center text-blue-600 mb-6">Your Cart</h2>
       <div className="max-w-4xl mx-auto bg-white p-6 shadow-lg rounded-lg">
         {cart_items ? (
           cart_items.map((item) => (
-            <div key={item.id} className="flex items-center justify-between border-b py-4">
-              <div className="flex items-center">
-                {/* <img src={item.image} alt={item.name} className="w-16 h-16 rounded-md mr-4" /> */}
-                <div>
-                  <h3 className="text-lg font-semibold">{item.name}</h3>
-                  <p className="text-gray-600 text-2xl font-bold">₹{item.price} <span className="text-blue-700">x {item.quantity}</span></p>
-                </div>
-              </div>
-            </div>
+            <CartItem item={item} key={item._id}/>
           ))
         ) : (
           <p className="text-center text-gray-600">Your cart is empty.</p>

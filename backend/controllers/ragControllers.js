@@ -16,14 +16,7 @@ const ingestProds = async (req, res) => {
   for (let prod of prods) {
     const combText = `Battery:${prod.battery} Design:${prod.design} Display:${prod.display}`;
     const embedding = await embedText(combText);
-  
-    // 💣 CRUCIAL LOGGING
-    console.log("Embedding for:", prod.name);
-    console.log("Embedding value:", embedding);
-    console.log("Type of embedding:", typeof embedding);
-    console.log("Is Array:", Array.isArray(embedding));
-    console.log("First item type:", typeof embedding?.[0]);
-  
+ 
     if (!Array.isArray(embedding) || typeof embedding[0] !== "number") {
       console.error("❌ Invalid embedding! It must be a flat array of numbers.");
       return res.status(500).json({ error: "Invalid embedding format!" });
