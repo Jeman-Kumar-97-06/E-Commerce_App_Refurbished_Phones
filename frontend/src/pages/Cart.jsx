@@ -65,6 +65,8 @@ export default function CartPage() {
     rzp.open();
   };
   //Payment Code ends here
+
+
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <button
@@ -75,7 +77,7 @@ export default function CartPage() {
       </button>
       <h2 className="text-3xl font-bold text-center text-blue-600 mb-6">Your Cart</h2>
       <div className="max-w-4xl mx-auto bg-white p-6 shadow-lg rounded-lg">
-        {cart_items ? (
+        {cart_items.length>0 ? (
           cart_items.map((item) => (
             <CartItem item={item} key={item._id}/>
           ))

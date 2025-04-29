@@ -3,7 +3,8 @@ const router  = express.Router();
 const {
     getCart,
     updateCart,
-    createCart
+    createCart,
+    deleteItemFromCart
 }             = require('../controllers/cartControllers');
 
 const requireAuth = require('../middleware/requireAuth');
@@ -16,5 +17,7 @@ router.get('/',getCart);
 router.post('/',createCart);
 
 router.patch('/',updateCart);
+
+router.delete('/:id',deleteItemFromCart)
 
 module.exports = router;

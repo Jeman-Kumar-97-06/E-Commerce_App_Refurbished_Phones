@@ -14,11 +14,8 @@ const getCart = async (req,res) => {
 };
 
 const updateCart = async (req,res) => {
-    //Item sent to be added to the cart : 
-    console.log(req.body);
-    return;
+    //Item sent to be added to the cart :
     const item_in_req = req.body;
-    console.log(item_in_req);
     //Existing Items in Cart : 
     const items_obj = await Cart.findOne({user_id:req.user._id});
     const old_items = items_obj.products;
@@ -30,6 +27,14 @@ const updateCart = async (req,res) => {
     }
     const updated_cart = await Cart.findOneAndUpdate({user_id:req.user._id},{products:old_items});
     return res.status(200).json("updated successfully!");
+}
+
+const deleteItemFromCart = async (req,res) => {
+    const {item}  = req.params;
+    const {products:items} = await Cart.findOne({user_id:req.user._id});
+    const updI  = items.filter(x=>{x!=item});
+    const updC  = await Cart.findOneAndUpdate({user_id:req.user._id},{products:updI});
+    return res.status(200).json("updated Successfully")
 }
 
 const createCart = async (req,res) => {
@@ -71,4 +76,4 @@ const createCart = async (req,res) => {
     }
 }
 
-module.exports = {getCart,updateCart,createCart};
+module.exports = {getCart,updateCart,createCart,deleteItemFromCart};

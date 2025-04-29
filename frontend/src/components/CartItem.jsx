@@ -14,7 +14,7 @@ const CartItem = ({item}) => {
             return;
         }
         item.quantity = Number(quantity);
-        const resp = await fetch('/api/carts',{method:"PATCH"})
+        const resp = await fetch('http://localhost:4000/api/carts/',{method:"PATCH",body:JSON.stringify(item),headers:{"Content-Type":"application/json","Authorization":`Bearer ${user.token}`}})
         const json = await resp.json();
         if (!resp.ok) {
             setError(json.error);
@@ -25,12 +25,19 @@ const CartItem = ({item}) => {
         }
     }
 
-    const deleteFromCart = () => {
+    const deleteFromCart = async () => {
         if (!user) {
             setError("You must be logged in!");
             return;
         }
-        dispatch({type:"REMOVE_FROM_CART",payload:item});
+        const resp = await fetch(`http://localhost:4000/api/carts/${item._id}`,{method:"DELETE",headers:{"Authorization":`Bearer ${user.token}`}});
+        const json = await resp.json();
+        if (resp.ok) {
+            dispatch({type:"REMOVE_FROM_CART",payload:item})
+        }
+        else {
+            console.log(json.error);
+        }
     }
     return (    
         <div key={item.id} className="flex items-center justify-between border-b py-4">
