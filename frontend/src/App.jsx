@@ -8,6 +8,8 @@ import ProductDetail from "./components/ProductDetails";
 import SignupPage from "./pages/Signup"
 import {useAuthContext} from './hooks/useAuthContext';
 import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
+import UserProfile from "./components/ProfileSection"
+import SellPhoneForm from "./pages/SellPhone"
 
 function App() {
   const {user} = useAuthContext();
@@ -21,6 +23,8 @@ function App() {
           <Route exact path='/contact' element={user ? <ContactUs/> : <Navigate to='/login'/>}/>
           <Route exact path='/phone/:id' element={user ? <ProductDetail/> : <Navigate to='/login'/>}/>
           <Route exact path='/cart' element={user? <CartPage/> : <Navigate to='/login'/>}/>
+          <Route exact path='/profile' element={user ? <UserProfile/> : <Navigate to='/login'/>}/>
+          <Route exact path='/sell' element={user ? <SellPhoneForm/> : <Navigate to='/login'/>}/>
         </Routes>
       </BrowserRouter>
     </>

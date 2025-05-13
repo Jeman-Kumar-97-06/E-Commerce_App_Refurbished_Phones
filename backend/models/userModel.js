@@ -6,7 +6,10 @@ const validator = require('validator');
 const userSchema = new Schema({
     name : {type:String,required:true},
     email : {type:String,required:true},
-    password : {type:String,required:false}
+    password : {type:String,required:false},
+    phone : {type:String,required:false},
+    pincode : {type:String,required:false},
+    address : {type:String,required:false},
 });
 
 userSchema.statics.signup = async function(name,email,password) {
