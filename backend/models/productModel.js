@@ -7,7 +7,9 @@ const productSchema = new Schema({
     rating : {type:String,required:true},
     battery : {type:String, required:true},
     design : {type:String,required:true},
-    display : {type:String,required:true}
+    display : {type:String,required:true},
+    condition : {type:String,required:true},
+    images : {type:[String],required:true}
 });
 
 module.exports = mongoose.model('Refurbished_prod',productSchema);

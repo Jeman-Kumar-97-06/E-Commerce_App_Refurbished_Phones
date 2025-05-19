@@ -22,6 +22,10 @@ const SellPhoneForm = () => {
     // Add logic to POST this data to your backend
   };
 
+  const handleImageChange = () => {
+    console.log("Clicked handle image change")
+  }
+
   return (
     <div className="max-w-2xl mx-auto mt-10 bg-white shadow-lg rounded-2xl p-6">
       <h2 className="text-2xl font-semibold text-blue-600 mb-6">Sell Your Phone</h2>
@@ -117,6 +121,20 @@ const SellPhoneForm = () => {
             placeholder="Your address for pickup"
             value={formData.address}
             onChange={handleChange}
+          />
+        </div>
+
+        <div className="mb-4">
+          <label htmlFor="image" className="block font-medium mb-1">
+            Upload Phone Images
+          </label>
+          <input
+            type="file"
+            id="image"
+            name="image"
+            accept="image/*"
+            onChange={handleImageChange}
+            className="border border-gray-300 rounded px-3 py-2 w-full"
           />
         </div>
 
