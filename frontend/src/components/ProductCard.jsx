@@ -7,8 +7,9 @@ import { useAuthContext } from "../hooks/useAuthContext";
 const ProductCard = ({phone,index}) => {
 
   //Handling 'quantity&add2cart' form data :
-  const [quantity,setQuantity] = useState(0);
+  const [quantity,setQuantity] = useState(1);
 
+  //Get the user object:
   const {user} = useAuthContext();
 
   //When user clicks 'Add to Cart':
@@ -24,7 +25,8 @@ const ProductCard = ({phone,index}) => {
     })
     const json = await resp.json();
   }
-
+  
+  //Shit to show on screen:
     return (
         <motion.div
             key={phone._id}
@@ -46,8 +48,8 @@ const ProductCard = ({phone,index}) => {
                 </Link>
                 <input
                   type="number"
-                  placeholder="0"
-                  min='0'
+                  placeholder="1"
+                  min='1'
                   value={quantity}
                   onChange={e=>{setQuantity(e.target.value)}}
                   className="max-w-45 min-w-10 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"

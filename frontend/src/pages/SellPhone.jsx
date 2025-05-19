@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const SellPhoneForm = () => {
   const [formData, setFormData] = useState({
@@ -28,7 +29,8 @@ const SellPhoneForm = () => {
 
   return (
     <div className="max-w-2xl mx-auto mt-10 bg-white shadow-lg rounded-2xl p-6">
-      <h2 className="text-2xl font-semibold text-blue-600 mb-6">Sell Your Phone</h2>
+      <Link to='/' className='bg-blue-700 text-white p-2 w-[90px] rounded-xl'>Back</Link>
+      <h2 className="text-2xl font-semibold text-blue-600 mb-3 mt-5">Sell Your Phone</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Brand */}
         <div>
@@ -113,7 +115,7 @@ const SellPhoneForm = () => {
 
         {/* Address */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">Pickup Address</label>
+          <label className="block text-sm font-medium text-gray-700">Your Address</label>
           <textarea
             name="address"
             rows="2"
@@ -134,7 +136,7 @@ const SellPhoneForm = () => {
             name="image"
             accept="image/*"
             onChange={handleImageChange}
-            className="border border-gray-300 rounded px-3 py-2 w-full"
+            className="border border-gray-300 rounded px-3 py-2 w-full cursor-pointer"
           />
         </div>
 

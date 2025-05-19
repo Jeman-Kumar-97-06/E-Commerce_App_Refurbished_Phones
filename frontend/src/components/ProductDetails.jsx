@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useProductContext } from "../hooks/useProductContext";
 import { motion } from "framer-motion";
 import { Battery, Smartphone, Monitor } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function ProductDetail() {
   const { id } = useParams();
@@ -20,12 +21,14 @@ export default function ProductDetail() {
     transition={{ duration: 0.6 }} 
     className="h-screen w-screen flex justify-center items-center bg-gray-100"
   >
+    
     <motion.div 
       initial={{ y: 20, opacity: 0 }} 
       animate={{ y: 0, opacity: 1 }} 
       transition={{ duration: 0.6 }} 
       className="w-full max-w-4xl bg-white shadow-lg rounded-2xl p-8 border flex flex-col md:flex-row items-center"
     >
+      
       {/* Product Image */}
       <motion.img
         src={product.image}
@@ -40,7 +43,7 @@ export default function ProductDetail() {
 
         {/* Battery Section */}
         <div className="mt-5 flex items-start">
-          <Battery className="w-7 h-7 text-blue-500 mt-1" />
+          <Battery className="w-10 h-10 text-blue-500 mt-1" />
           <div className="ml-3">
             <h3 className="text-lg font-semibold">Battery</h3>
             <p className="text-gray-600">
@@ -51,7 +54,7 @@ export default function ProductDetail() {
 
         {/* Design Section */}
         <div className="mt-5 flex items-start">
-          <Smartphone className="w-7 h-7 text-green-500 mt-1" />
+          <Smartphone className="w-10 h-10 text-green-500 mt-1" />
           <div className="ml-3">
             <h3 className="text-lg font-semibold">Design</h3>
             <p className="text-gray-600">
@@ -62,7 +65,7 @@ export default function ProductDetail() {
 
         {/* Display Section */}
         <div className="mt-5 flex items-start">
-          <Monitor className="w-7 h-7 text-purple-500 mt-1" />
+          <Monitor className="w-10 h-10 text-purple-500 mt-1" />
           <div className="ml-3">
             <h3 className="text-lg font-semibold">Display</h3>
             <p className="text-gray-600">
@@ -74,6 +77,7 @@ export default function ProductDetail() {
         {/* Price & Button */}
         <div className="mt-8 flex justify-between items-center">
           <span className="text-2xl font-bold text-blue-600">₹{product.price}</span>
+          <Link to='/' className='bg-blue-700 text-white p-2 w-[90px] shadow-md rounded-xl'>Back</Link>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
