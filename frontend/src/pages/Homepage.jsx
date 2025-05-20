@@ -18,6 +18,7 @@ export default function HomePage() {
   const [results,setResults] = useState([]); 
   const [currentReview, setCurrentReview] = useState(0);
   const {products,dispatch} = useProductContext();
+  const [prods,setProds] = useState(products)
 
   //Definition of the function that fetches all products : 
   const fetchAllPhones = async () => {
@@ -27,7 +28,11 @@ export default function HomePage() {
       dispatch({type:"SET_PRODS",payload:json});
     }
   };
- 
+  //Since the line 21 doesn't work, we use the following to update prods.
+  useEffect(() => {
+    setProds(products);
+  }, [products]);
+
   //fetchAllPhones should run everytime HomePage loads:
   useEffect(()=>{
     fetchAllPhones();
@@ -77,7 +82,7 @@ export default function HomePage() {
 
       {/* Featured Phones with Fade-in Scroll Effect */}
       <div className="container mx-auto py-12 px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {products && products.map((phone, index) => (
+        {prods && prods.map((phone, index) => (
            <ProductCard phone={phone} index={index} key={index}/>
         ))}
       </div>
