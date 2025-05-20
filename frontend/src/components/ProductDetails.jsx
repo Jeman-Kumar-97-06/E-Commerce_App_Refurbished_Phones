@@ -4,8 +4,10 @@ import { motion } from "framer-motion";
 import { Battery, Smartphone, Monitor } from "lucide-react";
 import { useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
+import { useNavigate } from "react-router-dom";
 
 export default function ProductDetail() {
+  const navigate = useNavigate();
   const { id } = useParams();
   const { products } = useProductContext();
   const { user } = useAuthContext();
@@ -29,7 +31,7 @@ export default function ProductDetail() {
   }
 
   const checkPincode = () => {
-    if (["560001", "110001"].includes(pincode)) {
+    if (["560001", "110001","560024","517408"].includes(pincode)) {
       setDeliveryStatus("✅ Delivery available in your area.");
     } else {
       setDeliveryStatus("❌ Delivery not available for this pincode.");
@@ -47,6 +49,14 @@ export default function ProductDetail() {
       transition={{ duration: 0.6 }}
       className="min-h-screen w-screen bg-gray-100 flex flex-col items-center py-6"
     >
+      <div className="w-full max-w-5xl px-4 mb-4">
+        <button
+          onClick={() => navigate(-1)}
+          className="text-blue-600 hover:underline text-sm font-medium flex items-center"
+        >
+          ← Back
+        </button>
+      </div>
       {/* Product Card */}
       <motion.div
         initial={{ y: 20, opacity: 0 }}

@@ -43,24 +43,7 @@ export default function HomePage() {
 
   //Dynamic Product Search:
   useEffect(()=>{
-    //If the products aren't loaded yet:
-    if (!products) {
-      // fetchAllPhones();
-      console.log("ran this")
-      return
-    }
-    //If the query length is zero
-    if (query.length==0){
-      setResults([]);
-      fetchAllPhones();
-      return;
-    }
-    const reslt = products.filter(p=>p.name.toLowerCase().includes(query.toLowerCase()));
-    if (reslt.length == 0) {
-      fetchAllPhones();
-    }
-    dispatch({type:"SET_PRODS",payload:reslt})
-    setResults(reslt)
+    
   },[query])
 
 
