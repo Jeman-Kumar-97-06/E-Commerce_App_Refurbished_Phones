@@ -51,7 +51,6 @@ export default function HomePage() {
     
   },[query])
 
-
   //Main Shit:
   return (
     <div className="min-h-screen bg-gray-100">
