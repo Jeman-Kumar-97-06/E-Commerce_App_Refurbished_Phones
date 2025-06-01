@@ -12,7 +12,6 @@ const ragTs    = require('./routes/rag');
 app.use(express.json());
 app.use(cors());
 
-
 app.use('/api/users',uRts);
 app.use('/api/carts',cRts);
 app.use('/api/products',pRts);
